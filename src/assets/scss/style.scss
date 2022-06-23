@@ -14,6 +14,7 @@
 @import "images";
 @import "code";
 @import "grid";
+@import "container-grid";
 @import "tables";
 @import "forms";
 @import "buttons";
@@ -42,6 +43,9 @@
 @import "spinners";
 @import "utilities";
 @import "print";
+
+$small: 768px;
+$medium: 992px;
 
 .brand-text-icon {
     font-size: 26px;
@@ -89,5 +93,23 @@ header {
         }
       }
     }
-  }
-  
+}
+
+.image-hero {
+    //some CSS
+    @media screen and (max-width: $small) {
+      display: none;
+    }
+    @media screen and (min-width: $medium) {
+      width: 400px;
+      height: 410px;
+    }
+}
+
+section {
+    margin-bottom: 70px;
+}
+
+.card {
+    height: 100%;
+}

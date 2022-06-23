@@ -1,32 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import propTypes from 'prop-types';
+import propTypes from "prop-types";
 
 export default function Button(props) {
-    const className = [props.className]
+    const className = [props.className];
+
     if(props.isPrimary) {
-        className.push('btn-primary')
+        className.push('btn-primary');
     }
 
     if(props.isLarge) {
-        className.push('btn-lg')
+        className.push('btn-lg');
     }
 
     if(props.isSmall) {
-        className.push('btn-sm')
+        className.push('btn-sm');
     }
 
     if(props.isBlock) {
-        className.push('btn-block')
+        className.push('btn-block');
     }
 
     if(props.hasShadow) {
-        className.push('btn-block')
+        className.push('btn-shadow');
     }
 
     const onClick = () => {
         if(props.onClick) {
-            props.onClick()
+            props.onClick();
         }
     }
 
@@ -49,17 +50,17 @@ export default function Button(props) {
     if(props.type === "link") {
         if(props.isExternal) {
             return (
-                <a href={props.href} className={className.join(' ')} style={props.style} target={props.target === '_blank' ? '_blank' : undefined} rel={props.target === "_blank" ? "noopener noreferer" : undefined}>{props.children}</a>
-            )
+                <a href={props.href} className={className.join(' ')} style={props.style} target={props.target === '_blank' ? '_blank' : undefined} rel={props.target === "_blank" ? "noopener noreferrer" : undefined}>{props.children}</a>
+            );
         } else {
             return (
-                <Link to={props.href} className={className.join(' ')} style={props.style} onClick={onclick}>{props.children}</Link>
-            )
+                <Link to={props.href} className={className.join(' ')} style={props.style} onClick={onClick}>{props.children}</Link>
+            );
         }
     }
   return (
     <button className={className.join(' ')} style={props.style} onClick={onclick}>{props.children}</button>
-  )
+  );
 }
 
 Button.propTypes = {
@@ -68,6 +69,7 @@ Button.propTypes = {
     href: propTypes.string,
     target: propTypes.string,
     cassName: propTypes.string,
+    isPrimary: propTypes.bool,
     isDisabled: propTypes.bool,
     isLoading: propTypes.bool,
     isSmall: propTypes.bool,
@@ -75,4 +77,4 @@ Button.propTypes = {
     isBlock: propTypes.bool,
     isExternal: propTypes.bool,
     hasShadow: propTypes.bool,
-}
+};
